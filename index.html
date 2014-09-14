@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>rClubs</title>
+        <link type="text/css" rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+        <script>
+          $(function() {
+            var availableTags = [
+              "ActionScript",
+              "AppleScript",
+              "Asp",
+              "BASIC",
+              "C",
+              "C++",
+              "Clojure",
+              "COBOL",
+              "ColdFusion",
+              "Erlang",
+              "Fortran",
+              "Groovy",
+              "Haskell",
+              "Java",
+              "JavaScript",
+              "Lisp",
+              "Perl",
+              "PHP",
+              "Python",
+              "Ruby",
+              "Scala",
+              "Scheme"
+            ];
+            $( "#searchbar" ).autocomplete({
+              source: availableTags
+            });
+          });
+        </script>    
+    </head>
+    <body>
+        <div class="heading">
+            Hey, Sensen <img id="arrow" src="/images/arrow.png" style="width:2%">
+        </div>
+        <div class="logo">
+            <center>
+                <font style="color:#c80808;font-size:72px;">r</font>
+                <font style="color:#4db7fb;font-size:72px;">Clubs</font>
+            </center>
+        </div>
+        <center>
+            <div class="ui-widget">
+                <form id="search">
+                    <input id="searchbar" placeholder="Search Clubs"/>
+                </form>
+            </div>
+        </center>
+    </body>
+</html>
