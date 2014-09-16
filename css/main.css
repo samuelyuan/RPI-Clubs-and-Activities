@@ -4,35 +4,111 @@
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
+a:hover {
+    color: none;
+}
+
+a:link {
+    color:none;
+}
+
+a:visited {
+    color:none;
+}
+
+a {
+    text-decoration: none;
+}
+
 body {
-    background-color:#efefef;
+    height: 700px;
+    background-color: white;
 }
 
 .heading {
-    margin: 0;
-    min-height: 30px;
-    background: black;
-    color: white;
-    padding-left: 10px;
-    padding-top: 10px; 
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    height: 6%;
+    background-color:#efefef;
+    z-index: -1;
+}
+
+.bod {
+    position: fixed;
+    top:8%;
+    width: 100%;
+    min-height: 450px;
+
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    height: 30%;
+    background-color:#efefef;
+    width: 100%;
+    z-index: -1;
 }
 
 .logo {
-    margin-top: 10%;
-    width: 100%;
-}
-#search {
-    height: 20%;
-    width: 100%;
+    margin-top: 5%;
 }
 
 #searchbar {
     margin-top: 2%;
-    padding: 10px;
+    padding: 1%;
     width: 40%;
-    font-size: 20px;
+    font-size: 1.25vw;
     border-color: #fdab49;
-    border-radius: 5px;
-    border-width: 3px;
+    border-radius: .5vw;
+    border-width: .3vw;
     outline: none;
 }
+
+.button {
+    position: fixed;
+    
+    width: 8%;
+    height: 4%;
+    border: solid black;
+    border-radius: 100px;
+    background-color: white;
+    color:black;
+    z-index: 1;
+}
+
+.button p {
+    margin-top: 5%;
+    font-size: 1.25vw;
+    height: 100%;
+    margin-left: 15%;
+}
+
+.button:hover{
+    background-color: #FFC675; 
+    color: white;
+}
+
+#about {
+    bottom:27%;
+    left:7%;
+}
+
+#contact {
+    bottom:27%;
+    left:17%;
+}
+
+
+#login {
+    left: 75%;
+    top:3%;
+}
+
+#signup {
+    left:85%;
+    top:3%;
+}
+
+.ui-autocomplete { max-height: 200px; overflow-y: scroll; overflow-x: hidden;}

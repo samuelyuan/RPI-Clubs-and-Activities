@@ -9,28 +9,71 @@
         <script>
           $(function() {
             var availableTags = [
-              "ActionScript",
-              "AppleScript",
-              "Asp",
-              "BASIC",
-              "C",
-              "C++",
-              "Clojure",
-              "COBOL",
-              "ColdFusion",
-              "Erlang",
-              "Fortran",
-              "Groovy",
-              "Haskell",
-              "Java",
-              "JavaScript",
-              "Lisp",
-              "Perl",
-              "PHP",
-              "Python",
-              "Ruby",
-              "Scala",
-              "Scheme"
+            "(ACM)Association for Computing Machinery",
+            "(SCA)Society for Creative Anachronism",
+            "(SIM)Society of Inquisitive Minds",
+            "Aquarium Club",
+            "Arnold Air Society",
+            "Astrophysical Society",
+            "Autoshop",
+            "Bass Team",
+            "Breathing and Meditation Club",
+            "Business Investments",
+            "Card Players Club",
+            "Center Stage",
+            "Chess Club",
+            "College Democrats",
+            "College Libertarians",
+            "College Republicans",
+            "Collegiate Starcraft League (CSL)",
+            "Creative Philosophy Club",
+            "Creative Problem Solving",
+            "Culinary Club",
+            "Dance Dance Revolution",
+            "Design Build Fly",
+            "Design Collective (DECO)",
+            "Ecologic",
+            "Electronics",
+            "Embedded Hardware Club",
+            "Entrepreneurship",
+            "Foreign Language Club",
+            "Game Development Club",
+            "Gaming Alliance",
+            "Gaming Club",
+            "Knitting Club",
+            "MAPS",
+            "Mac User Group (MUG)",
+            "Magic Club",
+            "Model Railroad",
+            "Nickle Club",
+            "Objectivist Club",
+            "Progressive Student Alliance",
+            "Quidditch Club",
+            "Quiz Bowl Club",
+            "RPI Book Club",
+            "RPI Bowling Club",
+            "RPI Debate Club",
+            "RPI Flying Club",
+            "RPISEC",
+            "Radio Contol Aircraft Club",
+            "Rensselaer Chemistry Society",
+            "Rensselaer Electric Vehicle (REV)",
+            "Rensselaer Motorsport (Formula SAE)",
+            "Rensselaer Rocket Society",
+            "SPEAK",
+            "Science Fiction Society",
+            "Secular Student Alliance",
+            "Silver Wings",
+            "Society of Biological Sciences",
+            "Space Society",
+            "Sports Car Association",
+            "Student Sustainability Task Force",
+            "TerraCafe",
+            "Tetherball Club",
+            "Total Nutrition Today",
+            "Vox: Voices for Reproductive Health",
+            "W2SZ HAM Radio",
+            "W2SZ HAM Radio"
             ];
             $( "#searchbar" ).autocomplete({
               source: availableTags
@@ -39,21 +82,26 @@
         </script>    
     </head>
     <body>
-        <div class="heading">
-            Hey, Sensen <img id="arrow" src="/images/arrow.png" style="width:2%">
-        </div>
-        <div class="logo">
+        <center><div class="heading"></div></center>
+        <a href="#"><div id="login" class="button"><p>Login</p></div></a>
+        <a href="#"><div id="signup" class="button"><p>Sign Up</p></div></a>
+        <div class="bod">
+            <div class="logo">
+                <center>
+                    <img src="/images/rClubs.png" width="20%;">
+                </center>
+            </div>
             <center>
-                <font style="color:#c80808;font-size:72px;">r</font>
-                <font style="color:#4db7fb;font-size:72px;">Clubs</font>
+                <div class="ui-widget">
+                    <form>
+                        <input id="searchbar" placeholder="Search Clubs"/>
+                    </form>
+                </div>
             </center>
         </div>
-        <center>
-            <div class="ui-widget">
-                <form id="search">
-                    <input id="searchbar" placeholder="Search Clubs"/>
-                </form>
-            </div>
-        </center>
+        <a href="#"><div id="about" class="button"><p>About</p></div></a>
+        <a href="#"><div id="contact" class="button"><p>Contact</p></div></a>
+        <div class="bottom">
+        </div>
     </body>
 </html>
