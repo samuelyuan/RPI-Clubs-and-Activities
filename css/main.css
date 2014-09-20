@@ -4,6 +4,11 @@
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
+body {
+    width: 100%;
+}
+
+
 a:hover {
     color: none;
 }
@@ -20,95 +25,76 @@ a {
     text-decoration: none;
 }
 
-body {
-    height: 700px;
-    background-color: white;
-}
-
-.heading {
-    position: fixed;
-    top: 0%;
-    width: 100%;
-    height: 6%;
-    background-color:#efefef;
-    z-index: -1;
-}
-
-.bod {
-    position: fixed;
-    top:8%;
-    width: 100%;
-    min-height: 450px;
-
-}
-
-.bottom {
-    position: fixed;
-    bottom: 0;
-    height: 30%;
-    background-color:#efefef;
-    width: 100%;
-    z-index: -1;
-}
-
-.logo {
-    margin-top: 5%;
-}
-
 #searchbar {
-    margin-top: 2%;
-    padding: 1%;
-    width: 40%;
+    margin-top: 3vw;
+    padding: 1vw;
+    width: 50%;
     font-size: 1.25vw;
-    border-color: #fdab49;
-    border-radius: .5vw;
-    border-width: .3vw;
+    border-color: black;
+    border-width: 1px;
     outline: none;
 }
 
-.button {
+.logo {
+    margin-top: 7vw;
+
+}
+
+.heading {
+    height: 3vw;
+    background-color: #c4dbe3;
+    width: 100%;
+}
+
+.search {
+    height:45vw;
+    width: 100%;
+}
+
+.footer {
+    width: 100%;
+    height: 2vw;
     position: fixed;
-    
-    width: 8%;
-    height: 4%;
-    border: solid black;
-    border-radius: 100px;
+    font-size:1vw;
+    bottom:5px;
+}
+
+.button {   
+    display: inline;
+}
+
+.homebutton {
+    margin-top: .3vw;
+    display: inline;
+    width:5vw;
+    margin-left: 3vw;
+    margin-right: 1vw;
+    float: left;
+}
+
+.topbutton {
+    margin-left: .7vw;
+    display: inline;
+    margin-top: .15vw;
+    font-size: 2vw;
+}
+
+.topbutton:hover {
     background-color: white;
+    padding-top: 12px;
+    margin-top: 0;
     color:black;
-    z-index: 1;
 }
 
-.button p {
-    margin-top: 5%;
-    font-size: 1.25vw;
-    height: 100%;
-    margin-left: 15%;
+#left {
+    float: left;
 }
 
-.button:hover{
-    background-color: #FFC675; 
-    color: white;
-}
-
-#about {
-    bottom:27%;
-    left:7%;
-}
-
-#contact {
-    bottom:27%;
-    left:17%;
+#right{
+    float: right;
+    margin-right: .5vw;
 }
 
 
-#login {
-    left: 75%;
-    top:3%;
-}
-
-#signup {
-    left:85%;
-    top:3%;
-}
 
 .ui-autocomplete { max-height: 200px; overflow-y: scroll; overflow-x: hidden;}
