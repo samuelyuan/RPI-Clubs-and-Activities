@@ -6,33 +6,41 @@
     </head>
     
     <body>
-        <center><div id="navbar"></div></center>
+        <div class="heading">
+            <a href="http://rclubs.me"><img class="homebutton" src="../images/rClubs.png"></a>
+            <ul>
+            </ul>
+        </div>
         
-        <a href="http://rclubs.me"><div class="logo"><span id="r">r</span>Clubs</div></a>
         <div id="search" class="ui-widget">
             <form>
                 <input id="searchbar" placeholder="Search for Clubs"/>
             </form>
         </div>
         <a href="#"><div id="about" class="button">About</div></a>
-        <a href="#"><div id="contact" class="button">Contact Us</div></a>
+        <a href="#"><div id="contact" class="button">Contact</div></a>
         <a href="#"><div id="login" class="button">Login</div></a>
-        <a href="#"><div id="signup" class="button">Sign Up</div></a>
-        
+        <a href="#"><div id="signup" class="button">Signup</div></a>
         <center>
             <div id="bodi">
-                <p id=slogan class="body-text">[insert slogan here]</p>
-                <p id="descr" class="body-text">[insert description here]</p>
-                <div id="name" class="entry"></div>
-                <div id="passwrd" class="entry"></div>
-                <div id="repasswrd" class="entry"></div>
-                <div id="email" class="entry"></div>
-                <a href="#"><div id="register" class="entry">Register</div></a>
+                <div class="talk">
+                    <p id=slogan class="body-text">rClubs</p>
+                    <p id="descr" class="body-text">Manage your clubs more easily with our very useful features</p>
+                </div>
+                <div class="boxes">
+                    <form action="#">
+                        <input id="fbox" type="text" placeholder="username">
+                        <input id="fbox" type="password" placeholder="password">
+                        <input id="fbox" type="text" placeholder="re-password">
+                        <input id="fbox" type="text" placeholder="email address">
+                        
+                        <input id="register" type="submit" value="REGISTER">
+                    </form>
+                </div>
             </div>
             
-            <div id="bottom">
+            <div class="bottom">
                 <p id="why" class="bottom-text">Why should you use rClubs?</p>
-                <a href="#"><div id="arrow" class="button"></div></a>
             </div>
         </center>
     
