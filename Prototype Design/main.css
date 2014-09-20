@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Century Gothic";
+}
+
+#navbar {
+    position: fixed;
+    top: 0%;
+    width: 1000%;
+    height: 40px;
+
+}
+
+#bodi {
+    position: center;
+    margin-top: 3%;
+    width: 70%;
+    height: 550px;
+    background-color: black;
+    border-radius: 7px;
+    border: 2px solid #47D147;
+}
+
+#bottom {
+    bottom:0%;
+    width: 70%;
+    height: 190px;
+    background-color: #64645E;
+    border-radius: 7px;
+    /*border: 2px solid #47D147;*/
+}
+
+.logo {
+    position: fixed;
+    top: 0%;
+    right: 76%;
+    font-size: 2vw;
+    color: #000000;
+    
+}
+
+.button:hover {
+    color: #47D147;
+    /*color: #19E819;*/
+}
+
+.button {
+    position: fixed;
+    color: #565647;
+    font-size: 2vw;
+}
+
+.entry {
+    background-color: white;
+    height: 50px;
+    width: 250px;
+    border-radius: 10px; 
+}
+
+#name {
+    position: fixed; 
+    right: 24%;
+    top: 24.4%;
+}
+
+#passwrd {
+    position: fixed; 
+    right: 24%;
+    top: 31.3%
+}
+#repasswrd {
+    position: fixed; 
+    right: 24%;
+    top: 38.2%
+}
+
+#email {
+    position: fixed; 
+    right: 24%;
+    top: 45%
+}
+
+#register {
+    position: fixed; 
+    background-color: #47D147;
+    right: 24%;
+    top: 52%;
+    font-size: 2.3vw;
+    color: black;
+}
+
+#register:hover {
+    color: white;
+}
+
+#r {
+    color: #47D147;
+}
+
+#search {
+    position:fixed;
+    top: 0.6%;
+    right: 54%;
+    width: 20%;
+}
+
+#searchbar {
+    padding: 0%;
+    width: 100%;
+    font-size: 1.27vw;;
+    border-color: #47D147;
+    border-radius: .25vw;
+    border-width: .15vw;
+    outline: none;
+}
+
+#signup {
+    top: 0%;
+    left: 75%;
+}
+
+#login {
+    top: 0%;
+    left: 68.6%;
+}
+
+#contact {
+    top: 0%;
+    left: 56.5%;
+}
+
+#about {
+    top: 0%;
+    left: 49%;
+}
+
+.body-text {
+    position:fixed;
+    color:white;
+}
+
+#slogan {
+    font-size:3.7vw;
+    top:30%;
+    left:24%;
+}
+
+#descr {
+    font-size:1.5vw;
+    top:45%;
+    left:32%;
+}
+
+.bottom-text {
+    position:fixed;
+    color:white;
+}
+
+#why {
+    font-size: 4vw;
+    right: 23.5%;
+}
+
+#arrow {
+    height: 75px;
+    width: 75px;
+    background-color: white;
+    bottom: 3.5%;
+    right:50%;
+    border-radius: 100%;
+}
