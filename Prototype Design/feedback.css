@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Century Gothic";
+}
+
+
+body{
+    background-color: #64645E;
+}
+
+.heading {
+    height: 3vw;
+    background-color: #c4dbe3;
+    width: 100%;
+}
+
+.homebutton {
+    margin-top: .3vw;
+    width:5vw;
+    margin-left: 3vw;
+    margin-right: 1vw;
+    float: left;
+}
+
+#search {
+    position:fixed;
+    top: .4vw;
+    left: 9vw;
+    width: 4vw;
+}
+
+#searchbar {
+    width: 30%;
+    position: fixed;
+    font-size: 1.5vw;
+    outline: none;
+}
+
+#feedbackbox {
+    width: 35%;
+    height: 15vw;
+    position:fixed;
+    font-size: 1.5vw;
+    outline:none;
+    
+}
+
+#submit-button {
+    width: 10%;
+    height: 2vw;
+    position:fixed;
+    outline:none;
+    border-radius: 5px;
+    font-size: 1vw;
+}
+
+#bodi {
+    position: fixed;
+    width: 100%;
+    height: 35vw;
+    background-color: black;
+}
+
+.button:hover {
+    color: #af0000;
+}
+
+.button {
+    position: fixed;
+    color: #565647;
+    font-size: 2vw;
+}
+
+.entry {
+    background-color: white;
+    height: 50px;
+    width: 250px;
+    border-radius: 10px; 
+}
+
+
+
+.talk {
+    position: fixed;
+    margin-top: 6vw;
+    left: 7vw;
+    width: 6vw;
+    height: 10px;
+}
+    
+.feedback {
+    position:fixed;
+    margin-top: 15vw;
+    left: 7vw;
+    width: 6vw;
+    height: 10px;
+}
+
+.submit {
+    position:fixed;
+    margin-top: 31vw;
+    left: 7vw;
+    width: 20vw;
+    height: 10px;
+}   
+
+    
+#descr {
+    font-size:2vw;
+    margin-top:5vw;
+    margin-left: .5vw;
+    width:50%;
+    text-align: left;
+}
+
+
+
+#signup {
+    top: 0;
+    left: 90%;
+}
+
+#login {
+    top: 0%;
+    left: 83%;
+}
+
+#contact {
+    top: 0%;
+    left: 73%;
+}
+
+#about {
+    top: 0%;
+    left: 65%;
+}
+
+.body-text {
+    position:fixed;
+    color:white;
+}
+
+
+
