@@ -28,11 +28,11 @@
                     <p id="descr" class="body-text">Manage your clubs more easily with our very useful features</p>
                 </div>
                 <div class="boxes">
-                    <form action="#">
-                        <input id="fbox" type="text" placeholder="username">
-                        <input id="fbox" type="password" placeholder="password">
-                        <input id="fbox" type="password" placeholder="re-password">
-                        <input id="fbox" type="text" placeholder="email address">
+                    <form method="post" action="signup.php">
+                        <input name="myusername" id="fbox" type="text" placeholder="username">
+                        <input name="mypassword" id="fbox" type="password" placeholder="password">
+                        <input name="repassword" id="fbox" type="password" placeholder="re-password">
+                        <input name="myemail" id="fbox" type="text" placeholder="email address">
                         
                         <input id="register" type="submit" value="REGISTER">
                     </form>
