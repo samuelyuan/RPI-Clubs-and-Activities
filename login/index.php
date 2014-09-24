@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+?>
+
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="main.css"/>
@@ -19,8 +22,8 @@
         </div>
         <a href="#"><div id="about" class="button">About</div></a>
         <a href="#"><div id="contact" class="button">Contact</div></a>
-        <a href="#"><div id="login" class="button">Login</div></a>
-        <a href="#"><div id="signup" class="button">Signup</div></a>
+        <a href="http://rclubs.me/login"><div id="login" class="button">Login</div></a>
+        <a href="http://rclubs.me/signup"><div id="signup" class="button">Signup</div></a>
         <center>
             <div id="bodi">
                 <div class="talk">
@@ -45,3 +48,5 @@
         
     </body>
 </html>
+                            
+                            

@@ -83,21 +83,37 @@ body{
 #signup {
     top: 0;
     left: 90%;
+    text-decoration: none;
+}
+
+#logout {
+    top: 0%;
+    left: 92%;
+    text-decoration: none;
 }
 
 #login {
     top: 0%;
     left: 83%;
+    text-decoration: none;
+}
+
+#myclubs {
+    top: 0;
+    left: 83%;
+    text-decoration: none;
 }
 
 #contact {
     top: 0%;
     left: 73%;
+    text-decoration: none;
 }
 
 #about {
     top: 0%;
     left: 65%;
+    text-decoration: none;
 }
 
 .body-text {
