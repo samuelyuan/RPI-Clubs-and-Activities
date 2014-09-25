@@ -43,7 +43,6 @@ body{
     position:fixed;
     font-size: 1.5vw;
     outline:none;
-    
 }
 
 #submit-button {
@@ -53,6 +52,8 @@ body{
     outline:none;
     border-radius: 5px;
     font-size: 1vw;
+    margin-top: 16vw;
+    margin-left: 0.5vw;
 }
 
 #bodi {
@@ -96,14 +97,7 @@ body{
     width: 6vw;
     height: 10px;
 }
-
-.submit {
-    position:fixed;
-    margin-top: 31vw;
-    left: 7vw;
-    width: 20vw;
-    height: 10px;
-}   
+  
 
     
 #descr {
