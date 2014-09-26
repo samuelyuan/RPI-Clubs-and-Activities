@@ -114,6 +114,7 @@ body{
 }
 
 #fbox {
+    outline: none;
     float: right;
     width: 20vw;
     padding: .7vw;
