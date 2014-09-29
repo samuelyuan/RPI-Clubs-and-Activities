@@ -16,9 +16,9 @@ $repassword=$_POST['repassword'];
 $myemail=$_POST['myemail'];
 
 //anti-injection
-$myusername = mysql_real_escape_string($username);
-$mypassword = mysql_real_escape_string($password);
-$myemail = mysql_real_escape_string($email);
+//$myusername = mysql_real_escape_string($username);
+//$mypassword = mysql_real_escape_string($password);
+//$myemail = mysql_real_escape_string($email);
 
 //Stores all the error messages as an array
 $errors = array();
@@ -26,53 +26,51 @@ $errors = array();
 //make sure user entered a username
 if (empty($myusername))
 {
-    array_push($errors,"You didn't enter a valid username.");
+    $errors[] = "You didn't enter a valid username.<br/>";
 }
 
 //make sure you entered valid passwords
 if (strlen($mypassword) < 8 )
 {
-    array_push($errors,"You didn't enter a valid password (8 characters or more).");
+    $errors[] = "You didn't enter a valid password (8 characters or more).<br/>";
 }
 
 //make sure passwords match
 if ($mypassword != $repassword)
 {
-    array_push($errors,"Entered passwords don't match.");
+    $errors[] = "Entered passwords don't match.<br/>";
 }
 
 //Make sure the email is an RPI email
 $test = '@rpi.edu';
 if(strlen($myemail) < strlen($test) || substr_compare($myemail, $test, -strlen($test), strlen($test)) != 0)
 {
-    array_push($errors,"You didn't enter an RPI email.");
+    $errors[] = "You didn't enter an RPI email.<br/>";
 }
 
 //Checks to see if username already exists
 $sql = "SELECT * FROM $tbl_name WHERE username='$myusername'";
 $result = mysql_query($sql);
 if (mysql_num_rows($result) != 0) {
-    array_push($errors,"Username aleready exists.");
+    $errors[] = "Username aleready exists.<br/>";
 }
-
 
 //Checks to see if email already exists
 $sql = "SELECT * FROM $tbl_name WHERE email='$myemail'";
 $result = mysql_query($sql);
 if (mysql_num_rows($result) != 0) {
-    array_push($errors,"Email aleready exists.");
+    $errors[] = "Email already exists.<br/>";
 }
 
 
 //Creates an error message string, and prints it out upon exit.
-if (!$errors(empty)) {
+if (!empty($errors)) {
     $error_message = "";
     foreach($errors as $error) {
-        $error_message .=  $error . <br />;
+        $error_message .=  $error;
     }
-    exit($errormessage);
+    exit($error_message);
 }
-
 
 
 //Register the user
