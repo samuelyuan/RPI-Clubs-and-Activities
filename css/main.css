@@ -25,7 +25,7 @@ a {
     text-decoration: none;
 }
 
-#searchbar {
+#homesearchbar {
     margin-top: 3vw;
     padding: 1vw;
     width: 50%;
@@ -59,8 +59,14 @@ a {
     bottom:5px;
 }
 
-.button {   
-    display: inline;
+.button {  
+    position: fixed;
+    color: #565647;
+    font-size: 2vw;
+}
+
+.bottombutton {
+   display: inline;
 }
 
 .homebutton {
@@ -95,6 +101,152 @@ a {
     margin-right: .5vw;
 }
 
-
-
 .ui-autocomplete { max-height: 200px; overflow-y: scroll; overflow-x: hidden;}
+
+#search {
+    position:fixed;
+    top: .4vw;
+    left: 9vw;
+    width: 4vw;
+}
+
+#searchbar {
+    width: 30%;
+    position: fixed;
+    font-size: 1.5vw;
+    outline: none;
+}
+
+#feedbackbox {
+    width: 35%;
+    height: 15vw;
+    position:fixed;
+    font-size: 1.5vw;
+    outline:none;
+}
+
+#submit-button {
+    width: 10%;
+    height: 2vw;
+    position:fixed;
+    outline:none;
+    border-radius: 5px;
+    font-size: 1vw;
+    margin-top: 16vw;
+    margin-left: 0.5vw;
+}
+
+#bodi {
+    position: fixed;
+    width: 100%;
+    height: 35vw;
+    background-color: black;
+}
+
+.entry {
+    background-color: white;
+    height: 50px;
+    width: 250px;
+    border-radius: 10px; 
+}
+
+.talk {
+    position: fixed;
+    margin-top: 6vw;
+    left: 7vw;
+    width: 6vw;
+    height: 10px;
+    
+}
+
+.feedback {
+    position:fixed;
+    margin-top: 15vw;
+    left: 7vw;
+    width: 6vw;
+    height: 10px;
+}
+
+#slogan {
+    font-size: 4vw;
+}
+#descr {
+    font-size:2vw;
+    margin-top:5vw;
+    margin-left: .5vw;
+    width:50%;
+    text-align: left;
+}
+
+#signup {
+    top: 0;
+    left: 90%;
+    text-decoration: none;
+}
+
+#logout {
+    top: 0%;
+    left: 92%;
+    text-decoration: none;
+}
+
+#login {
+    top: 0%;
+    left: 83%;
+    text-decoration: none;
+}
+
+#myclubs {
+    top: 0;
+    left: 83%;
+    text-decoration: none;
+}
+
+#contact {
+    top: 0%;
+    left: 73%;
+    text-decoration: none;
+}
+
+#about {
+    top: 0%;
+    left: 65%;
+    text-decoration: none;
+}
+
+.body-text {
+    position:fixed;
+    color:white;
+}
+
+.boxes {
+    position: fixed;
+    right:15vw;
+    margin-top: 6vw;
+    margin-left: 40vw;
+    width: 20vw;
+}
+
+#fbox {
+    float: right;
+    width: 20vw;
+    padding: .7vw;
+    border-radius: 1vw;
+    border-width: .2vw;
+    margin-top: .5vw;
+    font-size: 1.5vw;
+}
+
+#register {
+    float: right;
+    width: 22vw;
+    border-width: .2vw;
+    padding: .7vw;
+    border-radius: 1vw;
+    margin-top: 1vw;
+    font-size: 3vw;
+    background-color: #6fbc53;
+    outline: none;
+    color:white;
+    
+}                 
