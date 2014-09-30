@@ -10,7 +10,7 @@
 
 <html>
     <head>
-        <link type="text/css" rel="stylesheet" href="main.css"/>
+        <link type="text/css" rel="stylesheet" href="../css/main.css"/>
         <title>rClubs</title>
     </head>
     
@@ -46,6 +46,7 @@
         
     </body>
 </html>                
+                            
                             
                             
                             

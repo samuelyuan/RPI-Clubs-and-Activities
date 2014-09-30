@@ -3,6 +3,9 @@
     <head>
         <link type="text/css" rel="stylesheet" href="css/main.css"/>
         <title>rClubs</title>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/autocomplete.js"></script>
     </head>
     
     <body>
@@ -12,8 +15,8 @@
         
             
         <div id="search" class="ui-widget">
-            <form>
-                <input id="searchbar" placeholder="Search for Clubs"/>
+            <form method="post" action="php/do_search.php">
+                <input name="mysearch" id="searchbar" placeholder="Search for Clubs"/>
             </form>
         </div>    
         
@@ -29,7 +32,7 @@
                     <p id="descr" class="body-text">Give us your Feedback</p>
                 </div>
                 <div class="feedback">
-                    <form method="post" action="feedback.php">
+                    <form method="post" action="php/feedback.php">
                         <textarea name="feedback" id="feedbackbox" placeholder="Put your Feedback Here"> </textarea>
                    
                         <input type="submit" placeholder="Submit" id="submit-button"/>
