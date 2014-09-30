@@ -56,6 +56,7 @@
             "RPI Flying Club",
             "RPISEC",
             "Radio Contol Aircraft Club",
+            "Rensselaer Center for Open Source Software (RCOS)",
             "Rensselaer Chemistry Society",
             "Rensselaer Electric Vehicle (REV)",
             "Rensselaer Motorsport (Formula SAE)",
@@ -75,7 +76,7 @@
             "W2SZ HAM Radio",
             "W2SZ HAM Radio"
             ];
-            $( "#searchbar" ).autocomplete({
+            $( "#homesearchbar" ).autocomplete({
               source: availableTags
             });
           });
@@ -86,9 +87,9 @@
             <a href="http://rclubs.me"><img class="homebutton" src="images/rClubs.png"></a>
             <ul>
                 <a href="#"><li class="topbutton" id="left"><font color="#0094e1">About</font></li></a>
-                <a href="#"><li class="topbutton" id="left"><font color="#0094e1">Feedback</font></li></a>
+                <a href="http://rclubs.me/feedback.html"><li class="topbutton" id="left"><font color="#0094e1">Feedback</font></li></a>
                 <a href="http://rclubs.me/signup"><li class="topbutton" id="right" style="margin-right:3vw;"><font color="#0094e1">Signup</font></li></a>
-                <a href="#"><li class="topbutton" id="right"><font color="#0094e1">Login</font></li></a>
+                <a href="http://rclubs.me/login"><li class="topbutton" id="right"><font color="#0094e1">Login</font></li></a>
             </ul>
         </div>
         <div class="search">
@@ -99,8 +100,10 @@
             </div>
             <center>
                 <div class="ui-widget">
-                    <form>
-                        <input id="searchbar" placeholder="Search Clubs"/>
+                    <form method="post" action="do_search.php">
+                        <input name="mysearch" id="homesearchbar" type="text" placeholder="Search Clubs"/>
+                        
+                        <input type="submit" value="Search"  />
                     </form>
                 </div>
             </center>
@@ -108,8 +111,8 @@
         <div class="footer">
             <center>
                 <ul class="footbar">
-                    <a href="#"><li class="button"><font color="#af0000">r</font><font color="#797979">Clubs</font></li></a>
-                    <a href="http://rcos.rpi.edu/projects/rpi-tradebook/"><li class="button"><font color="#af0000">@RCOS</font></li></a>
+                    <a href="#"><li class="bottombutton"><font color="#af0000">r</font><font color="#797979">Clubs</font></li></a>
+                    <a href="http://rcos.rpi.edu/projects/rpi-tradebook/"><li class="bottombutton"><font color="#af0000">@RCOS</font></li></a>
                 </ul>
             </center>
         </div>
