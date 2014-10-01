@@ -34,6 +34,9 @@ if(strlen($myemail) < strlen($test) || substr_compare($myemail, $test, -strlen($
     exit("You didn't enter an RPI email.");
 }
 
+//Encrypt the password
+$mypassword = md5($mypassword);
+
 //Register the user
 $query = "INSERT INTO $tbl_name (username, password, email) VALUES ('$myusername','$mypassword', '$myemail')";
 
