@@ -19,11 +19,11 @@
         </div>
         
         <div id="search" class="ui-widget">
-            <form method="post" action="../php/do_search.php">
+            <form method="post" action="../php/display_search.php">
                 <input name="mysearch" id="searchbar" placeholder="Search for Clubs"/>
             </form>
         </div>
-        <a href="#"><div id="about" class="button">About</div></a>
+        <a href="http://rclubs.me/about"><div id="about" class="button">About</div></a>
         <a href="http://rclubs.me/feedback.html"><div id="contact" class="button">Contact</div></a>
         <a href="http://rclubs.me/login"><div id="login" class="button">Login</div></a>
         <a href="http://rclubs.me/signup"><div id="signup" class="button">Signup</div></a>
