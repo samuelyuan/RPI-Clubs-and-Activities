@@ -25,7 +25,7 @@ if (isset($mysearch))
 
     if (mysql_num_rows($result) != 0) 
     {
-        echo "Club Information: <br/>";
+        echo "<br/>Club Information: <br/>";
         
         $weekday = mysql_result($result,0,"weekday");
         $time = mysql_result($result,0,"time"); 

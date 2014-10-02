@@ -249,4 +249,15 @@ a {
     outline: none;
     color:white;
     
+}   
+
+#confirmfont {
+    font-size: 3vw;
+}
+
+#font_clubinfo {
+    color: black;
+    font-size: 2vw;
+    margin-top: 3vw;
+    margin-left: .5vw;
 }                 
