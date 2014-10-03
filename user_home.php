@@ -1,12 +1,22 @@
+<?php
+    session_start();
+
+    //make sure user is signed in
+    if (!isset($_SESSION['myusername']))
+    {
+        header("location: index.php");
+    }
+?>
+
 <!DOCTYPE HTML>
 <html>
     <head>
         <title>rClubs</title>
         <link type="text/css" rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-  <script type="text/javascript" src="js/autocomplete.js"></script> 
+  <script type="text/javascript" src="js/autocomplete.js"></script>
     </head>
     <body>
         <div class="heading">
@@ -14,8 +24,8 @@
             <ul>
                 <a href="#"><li class="topbutton" id="left"><font color="#0094e1">About</font></li></a>
                 <a href="http://rclubs.me/feedback.html"><li class="topbutton" id="left"><font color="#0094e1">Feedback</font></li></a>
-                <a href="http://rclubs.me/signup"><li class="topbutton" id="right" style="margin-right:3vw;"><font color="#0094e1">Signup</font></li></a>
-                <a href="http://rclubs.me/login"><li class="topbutton" id="right"><font color="#0094e1">Login</font></li></a>
+                <a href="http://rclubs.me/login/logout.php"><li class="topbutton" id="right""><font color="#0094e1">Logout</font></li></a>
+                <a href="#"><li class="topbutton" id="right"><font color="#0094e1">MyClubs</font></li></a>
             </ul>
         </div>
         <div class="search">
@@ -43,4 +53,5 @@
             </center>
         </div>
     </body>
-</html>
+</html>                                
+                            

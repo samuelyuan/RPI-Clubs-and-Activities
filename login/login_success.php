@@ -16,7 +16,7 @@
     
     <body>
         <div class="heading">
-            <a href="http://rclubs.me"><img class="homebutton" src="../images/rClubs.png"></a>
+            <a href="http://rclubs.me/user_home.php"><img class="homebutton" src="../images/rClubs.png"></a>
             <ul>
             </ul>
         </div>
@@ -45,14 +45,4 @@
     
         
     </body>
-</html>                
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
+</html>  
