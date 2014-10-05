@@ -4,7 +4,6 @@
         header("location: http://rclubs.me");
     }
 ?>
-
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="../css/main.css"/>
@@ -22,12 +21,12 @@
         </div>
         
         <div id="search" class="ui-widget">
-            <form method="post" action="../php/display_search.php">
+            <form method="post" action="../php/do_search.php">
                 <input name="mysearch" id="searchbar" placeholder="Search for Clubs"/>
             </form>
         </div>
-        <a href="http://rclubs.me/about"><div id="about" class="button">About</div></a>
-        <a href="http://rclubs.me/feedback.php"><div id="contact" class="button">Feedback</div></a>
+        <a href="#"><div id="about" class="button">About</div></a>
+        <a href="http://rclubs.me/feedback.html"><div id="contact" class="button">Contact</div></a>
         <a href="http://rclubs.me/login"><div id="login" class="button">Login</div></a>
         <a href="http://rclubs.me/signup"><div id="signup" class="button">Signup</div></a>
         <center>
@@ -37,12 +36,7 @@
                     <p id="descr" class="body-text">Manage your clubs more easily with our very useful features</p>
                 </div>
                 <div class="boxes">
-                    <form method="post" action="checklogin.php">
-                        <input name="myusername" id="fbox" type="text" placeholder="username">
-                        <input name="mypassword" id="fbox" type="password" placeholder="password">
-                        
-                        <input id="register" type="submit" value="LOGIN">
-                    </form>
+                    <p id="confirmfont" class="body-text"> <?php include 'confirm.php';?> </p>
                 </div>
             </div>
             
@@ -54,3 +48,19 @@
         
     </body>
 </html>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            

@@ -1,4 +1,4 @@
-<?php
+ <?php
     session_start();
     if (isset($_SESSION['myusername'])) {
         header("location: http://rclubs.me");
@@ -37,11 +37,13 @@
                     <p id="descr" class="body-text">Manage your clubs more easily with our very useful features</p>
                 </div>
                 <div class="boxes">
-                    <form method="post" action="checklogin.php">
+                    <form method="post" action="signup.php">
                         <input name="myusername" id="fbox" type="text" placeholder="username">
                         <input name="mypassword" id="fbox" type="password" placeholder="password">
+                        <input name="repassword" id="fbox" type="password" placeholder="re-password">
+                        <input name="myemail" id="fbox" type="text" placeholder="email address">
                         
-                        <input id="register" type="submit" value="LOGIN">
+                        <input id="register" type="submit" value="REGISTER">
                     </form>
                 </div>
             </div>

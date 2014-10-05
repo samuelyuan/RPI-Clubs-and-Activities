@@ -16,7 +16,7 @@
     
     <body>
         <div class="heading">
-            <a href="http://rclubs.me/user_home.php"><img class="homebutton" src="../images/rClubs.png"></a>
+            <a href="http://rclubs.me"><img class="homebutton" src="../images/rClubs.png"></a>
             <ul>
             </ul>
         </div>
@@ -27,7 +27,7 @@
             </form>
         </div>
         <a href="#"><div id="about" class="button">About</div></a>
-        <a href="#"><div id="contact" class="button">Contact</div></a>
+        <a href="http://rclubs.me/feedback.php"><div id="contact" class="button">Feedback</div></a>
         <a href="#"><div id="myclubs" class="button">MyClubs</div></a>
         <a href="logout.php"><div id="logout" class="button">Logout</div></a>
         <center>
@@ -45,4 +45,4 @@
     
         
     </body>
-</html>  
+</html>
