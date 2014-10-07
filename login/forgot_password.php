@@ -35,15 +35,12 @@
                 <div class="talk">
                     <p id=slogan class="body-text">rClubs</p>
                     <p id="descr" class="body-text">Manage your clubs more easily with our very useful features</p>
-
-                    <p id="descr" class="body-text"><br/><br/><br/><a href="forgot_password.php">(Forgot Password?)</a></p>
                 </div>
                 <div class="boxes">
-                    <form method="post" action="checklogin.php">
-                        <input name="myusername" id="fbox" type="text" placeholder="username">
-                        <input name="mypassword" id="fbox" type="password" placeholder="password">
+                    <form method="post" action="send_reset_email.php">
+                        <input name="myemail" id="fbox" type="text" placeholder="email">
                         
-                        <input id="register" type="submit" value="LOGIN">
+                        <input id="register" type="submit" value="SUBMIT">
                     </form>
                 </div>
               
@@ -56,4 +53,5 @@
     
         
     </body>
-</html>
+</html>                                
+                            
