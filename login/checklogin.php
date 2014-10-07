@@ -30,12 +30,24 @@
 
     $count = mysql_num_rows($result);
 
+    $db_field = mysql_fetch_assoc($result);
+    $isactivated = $db_field['activated'];
+
     // If result matched $myusername and $mypassword, table row must be 1 row
     if($count == 1)
     {
-        $_SESSION['myusername'] = $myusername;
-        $_SESSION['mypassword'] = $mypassword;
-        header("location:login_success.php");
+        //Make sure the user's account is activated
+        if ($isactivated == 1)
+        {
+             $_SESSION['myusername'] = $myusername;
+             $_SESSION['mypassword'] = $mypassword;
+             header("location:login_success.php");
+        }
+        else
+        {
+             echo "Your account hasn't been activated yet.<br/>";
+             echo "Please check your email at " . $db_field['email'] . " to activate your account.";
+        }
     }
     else 
     {
