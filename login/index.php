@@ -36,7 +36,7 @@
                     <p id=slogan class="body-text">rClubs</p>
                     <p id="descr" class="body-text">Manage your clubs more easily with our very useful features</p>
 
-                    <p id="descr" class="body-text"><br/><br/><br/><a href="forgot_password.php">(Forgot Password?)</a></p>
+                    <p id="descr" class="body-text"><br/><br/><br/><a href="../reset/forgot_password.php">(Forgot Password?)</a></p>
                 </div>
                 <div class="boxes">
                     <form method="post" action="checklogin.php">
