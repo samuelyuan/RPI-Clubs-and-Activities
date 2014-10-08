@@ -41,7 +41,6 @@ else {
     $myuserid = $db_field['userid'];
     $myemail = $db_field['email'];
 
-    echo "Userid: " . $myuserid . "<br/>";
     echo "Email: " . $myemail . "<br/>";
 
     //Access users table now

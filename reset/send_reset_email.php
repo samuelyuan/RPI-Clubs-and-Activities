@@ -1,4 +1,4 @@
-                                                                <?php
+<?php
 $host="localhost"; // Host name
 $username="rclubsme_user"; // Mysql username
 $password="rpi123"; // Mysql password
@@ -9,15 +9,26 @@ $tbl_name="Reset"; // Table name
 mysql_connect("$host", "$username", "$password")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
 
-//send an email
+//get the email
 $myemail=$_POST['myemail'];
 
 //anti-injection
 $myemail = mysql_real_escape_string($myemail);
 
-//generate key
+//Make sure the email exists in the Users database
+$sql = "SELECT * FROM Users WHERE email='$myemail'";
+$result = mysql_query($sql);
+$count = mysql_num_rows($result);
+
+//email doesn't exist
+if ($count == 0)
+{
+    exit("The email " . $myemail . " hasn't been registered yet. Please enter a different email.");
+}
+
+//generate the reset key
 $mykey = $myemail . date('mY'); //Key
-$mykey = md5($mykey); //Hash the key
+$mykey = crypt($mykey); 
 
 echo "A link to reset your password has been sent to " . $myemail . "<br/>";
 
@@ -30,7 +41,5 @@ if ($data)
     $mail_body = "Your reset key is " . $mykey . "<br/> Click on this link to reset your password: <a>http://rclubs.me/reset_form.php</a>";
     mail($myemail,"rClubs: Reset Password Link", $mail_body); 
 }
-?>
-                            
-                            
+?>                    
                             
