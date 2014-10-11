@@ -1,4 +1,4 @@
-                                                                                                <?php include ( "../clubpage/header.php" ); ?>
+                                <?php include ( "../clubpage/header.php" ); ?>
 <?php
     
     $host="localhost"; // Host name
@@ -35,7 +35,11 @@
 <h2>Club Name: <?php echo "$clubname"; ?></h2>
 <h2>Day of Meeting: <?php echo "$weekday"; ?></h2>
 <h2>Location: <?php echo "$location"; ?></h2>
-
+<?php
+echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname'].">";
+echo "Add this Club to your MyClubs list <br/>";
+echo "</a>";                            
+?>                            
                             
                             
                             
