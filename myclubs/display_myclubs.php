@@ -26,11 +26,15 @@ echo "Username: ". $myusername . "<br/><br/>";
 echo "Clubs added: <br/>";
 
 $check = mysql_query("SELECT clubid FROM MyClubs WHERE userid='$myuserid'");
-if(mysql_num_rows($check)!=0)
+if(mysql_num_rows($check) == 0)
 {
-    $get = mysql_fetch_assoc($check);
-    $myclubid = $get['clubid'];
-    
+    exit("No clubs saved.<br/>");
+}
+
+while ($row = mysql_fetch_assoc($check)) 
+{
+    $myclubid = $row['clubid'];
+
     //search for club name 
     $sql = "SELECT * FROM Clubs WHERE clubid='$myclubid'";
     $result = mysql_query($sql);
@@ -38,12 +42,6 @@ if(mysql_num_rows($check)!=0)
     $myclubname = $db_field['name'];
 
     //print each club found
-    echo $myclubname . "<br/>";
+     echo $myclubname . "<br/>";
 }
-else
-{
-    echo "No clubs saved.<br/>";
-} 
-
-?>                             
-                            
+?>

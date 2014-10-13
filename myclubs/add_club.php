@@ -30,6 +30,13 @@ $result = mysql_query($sql);
 $db_field = mysql_fetch_assoc($result);
 $myclubid = $db_field['clubid'];
 
+//Checks to see if the user already added the club to the MyClubs list
+$sql = "SELECT * FROM MyClubs WHERE userid='$myuserid' and clubid='$myclubid'";
+$result = mysql_query($sql);
+if (mysql_num_rows($result) != 0) {
+    exit("This club has already been added to your MyClubs list.<br/>");
+}
+
 //Add a new entry in the MyClubs table that maps the user id to the club id
 $query = "INSERT INTO MyClubs (userid, clubid) VALUES ('$myuserid','$myclubid')";
 $data = mysql_query($query)or die(mysql_error());

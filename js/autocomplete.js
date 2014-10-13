@@ -48,7 +48,7 @@
             "RPI Flying Club",
             "RPISEC",
             "Radio Contol Aircraft Club",
-            "Rensselaer Center for Open Source Software (RCOS)",
+            "RCOS",
             "Rensselaer Chemistry Society",
             "Rensselaer Electric Vehicle (REV)",
             "Rensselaer Motorsport (Formula SAE)",

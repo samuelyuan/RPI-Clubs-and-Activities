@@ -1,4 +1,4 @@
-                                <?php
+<?php
     session_start();
     if (!isset($_SESSION['myusername'])) {
         header("location: http://rclubs.me");
@@ -23,7 +23,7 @@
         </div>
         
         <div id="search" class="ui-widget">
-            <form method="post" action="../php/display_search.php">
+            <form method="post" action="../php/display_result.php">
                 <input name="mysearch" id="searchbar" placeholder="Search for Clubs"/>
             </form>
         </div>
@@ -35,7 +35,4 @@
             include 'display_myclubs.php';
         ?>
     </body>
-</html>
-                            
-                            
-                            
+</html>         
