@@ -36,8 +36,21 @@
 <h2>Day of Meeting: <?php echo "$weekday"; ?></h2>
 <h2>Location: <?php echo "$location"; ?></h2>
 <?php
-echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname'].">";
-echo "Add this Club to your MyClubs list <br/>";
-echo "</a>";                            
-?>                            
-                            
+session_start();
+
+if (!isset($_SESSION['myusername'])) {
+    echo "Want to bookmark this club? Login or signup for a new account.<br/>";
+}
+else
+{
+    echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname'].">";
+    echo "ADD this Club to your MyClubs list <br/>";
+    echo "</a>";
+
+    echo "<br/>";
+
+    echo "<a href=http://rclubs.me/myclubs/delete_club.php?club=".$get['urlname'].">";
+    echo "DELETE this club from your MyClubs list <br/>";
+    echo "</a>";       
+}                     
+?>

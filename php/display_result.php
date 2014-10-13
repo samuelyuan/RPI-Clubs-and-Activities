@@ -1,13 +1,3 @@
-<html>
-<style>
-  a {
-    text-decoration:none;	  
-  }
-	
-</style>
-
-
-
 <?php
 $host="localhost"; // Host name
 $username="rclubsme_user"; // Mysql username
@@ -34,18 +24,26 @@ if (isset($mysearch))
 
     while($row = mysql_fetch_array($result)){
     	if (strpos(strtolower($row['name']),strtolower($word)) !== false) {
-    		echo "<a href=http://rclubs.me/clubpage/".$row['urlname'].">";	
+    		/*echo "<a href=http://rclubs.me/clubpage/".$row['urlname'].">";	
     		echo $row['name'] . "<br/>";
          	echo "Day(s) of the week: " . $row['weekday'] . "<br/>";
          	echo "Time: " . $row['time'] . "<br/>";
          	echo "Location: " . $row['location'] . "<br/>";
-         	echo "</a>";
+         	echo "</a>";*/
+            header("location: http://rclubs.me/clubpage/" . $row['urlname']);
         	
 	}
-	echo "<br />";
+	//echo "<br />";
     }
     
 }
 ?>                                
-                            
-</html> 
+
+<html>
+<style>
+  a {
+    text-decoration:none;	  
+  }
+	
+</style>                            
+</html>
