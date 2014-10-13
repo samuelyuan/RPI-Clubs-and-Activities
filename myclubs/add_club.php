@@ -25,7 +25,7 @@ $db_field = mysql_fetch_assoc($result);
 $myuserid = $db_field['userid'];
 
 //search for club id
-$sql = "SELECT * FROM Clubs WHERE name='$myclub'";
+$sql = "SELECT * FROM Clubs WHERE urlname='$myclub'";
 $result = mysql_query($sql);
 $db_field = mysql_fetch_assoc($result);
 $myclubid = $db_field['clubid'];
