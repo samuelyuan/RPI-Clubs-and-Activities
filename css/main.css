@@ -204,7 +204,7 @@ a {
 
 #contact {
     top: 0%;
-    left: 73%;
+    left: 72%;
     text-decoration: none;
 }
 
@@ -249,10 +249,10 @@ a {
     outline: none;
     color:white;
     
-}   
+}
 
 #confirmfont {
-    font-size: 3vw;
+    font-size: 2vw;
 }
 
 #font_clubinfo {
@@ -260,4 +260,25 @@ a {
     font-size: 2vw;
     margin-top: 3vw;
     margin-left: .5vw;
-}                 
+}                         
+.add_club {
+    width: 5vw;
+    border-width: .2vw;
+    padding: .7vw;
+    border-radius: 1vw;
+    font-size: 1vw;
+    background-color: #6fbc53;
+    outline: none;
+    color:white;
+}
+                            
+.delete_club {
+    width: 5vw;
+    border-width: .2vw;
+    padding: .7vw;
+    border-radius: 1vw;
+    font-size: 1vw;
+    background-color: #CC0000;
+    outline: none;
+    color:white;
+}

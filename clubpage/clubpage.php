@@ -32,9 +32,20 @@
 ?>
 
 <!--Print club information from database-->
-<h2>Club Name: <?php echo "$clubname"; ?></h2>
-<h2>Day of Meeting: <?php echo "$weekday"; ?></h2>
-<h2>Location: <?php echo "$location"; ?></h2>
+<table border="1" width="25%" cellpadding="4" cellspacing="3">
+   <th colspan="2">
+        <h3><br>Club Name: <?php echo "$clubname"; ?></h3>
+   </th>
+   <tr>
+       <td>Meeting Day(s)</td>
+       <td><?php echo "$weekday"; ?></td>
+   </tr>
+   <tr>
+       <td>Location</td>
+       <td><?php echo "$location"; ?></td>
+   </tr>
+</table>
+
 <?php
 session_start();
 
@@ -43,14 +54,16 @@ if (!isset($_SESSION['myusername'])) {
 }
 else
 {
-    echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname'].">";
-    echo "ADD this Club to your MyClubs list <br/>";
+    echo "<br/>";
+
+    echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname']." class=add_club>";
+    echo "ADD this Club<br/>";
     echo "</a>";
 
     echo "<br/>";
 
-    echo "<a href=http://rclubs.me/myclubs/delete_club.php?club=".$get['urlname'].">";
-    echo "DELETE this club from your MyClubs list <br/>";
+    echo "<a href=http://rclubs.me/myclubs/delete_club.php?club=".$get['urlname']." class=delete_club>";
+    echo "DELETE this Club<br/>";
     echo "</a>";       
 }                     
 ?>
