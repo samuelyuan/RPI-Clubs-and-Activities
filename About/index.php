@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+?>
+
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="../css/main.css">
@@ -16,18 +19,38 @@
         
             
         <div id="search" class="ui-widget">
-            <form method="post" action="../php/display_search.php">
+            <form method="post" action="../php/display_result.php">
                 <input name="mysearch" id="searchbar" placeholder="Search for Clubs"/>
             </form>
         </div>    
                
         <a href="http://rclubs.me/about"><div id="about" class="button">About</div></a>
         <a href="http://rclubs.me/feedback.php"><div id="contact" class="button">Feedback</div></a>
-        <a href="http://rclubs.me/login"><div id="login" class="button">Login</div></a>
-        <a href="http://rclubs.me/signup"><div id="signup" class="button">Signup</div></a>
+        <a href="http://rclubs.me/login"><div id="login" class="button">
+                <?php
+                	if (!isset($_SESSION['myusername']))
+    				{echo("Login");}
+    		?> 
+        </div></a>
+        <a href="http://rclubs.me/signup"><div id="signup" class="button">
+                <?php
+                	if (!isset($_SESSION['myusername']))
+    				{echo("Signup");}
+    		?> 
+    	</div></a>
+        <a href="http://rclubs.me/myclubs/"><div id="myclubs" class="button">
+                <?php
+                	if (isset($_SESSION['myusername']))
+    				{echo("MyClubs");}
+    		?> 
+        </div></a>
+        <a href="http://rclubs.me/login/logout.php"><div id="logout" class="button">
+                <?php
+                	if (isset($_SESSION['myusername']))
+    				{echo("Logout");}
+    		?> 
+        </div></a>
 
 <p>The objective of rClubs is to organize important information about all ongoing clubs and activities at RPI to make it more accessible to students. Students can create accounts and follow clubs that they wish to be a part of and they will receive important information such as the dates of key meetings from the club leaders. Overall, we hope to create a more efficient database of all the wonderful clubs here at RPI!   </p>
     </body>
 </html>
-</html>
-                   
