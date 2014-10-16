@@ -282,3 +282,12 @@ a {
     outline: none;
     color:white;
 }
+
+.mission_statement {
+    font-size: 1.75vw;
+}
+
+.about_text {
+    padding: 10px 100px 20px;
+    font-size: 1.25vw;
+}
