@@ -1,7 +1,7 @@
 <?php
-session_start();
-if (!isset($_SESSION['myusername'])) {
-    header("location: http://rclubs.me");
+    session_start();
+    if (!isset($_SESSION['myusername'])) {
+        header("location: http://rclubs.me");
 }
 
 $host="localhost"; // Host name
@@ -40,8 +40,11 @@ while ($row = mysql_fetch_assoc($check))
     $result = mysql_query($sql);
     $db_field = mysql_fetch_assoc($result);
     $myclubname = $db_field['name'];
+    $meetingdays = $db_field['weekday'];
 
-    //print each club found
-     echo $myclubname . "<br/>";
+    //print each club found (provide a link to the clubpage)
+    echo "<a href=http://rclubs.me/clubpage/" . $db_field['urlname'] . ">";
+    echo $myclubname . "</a>";
+    echo "<br/>";
 }
 ?>

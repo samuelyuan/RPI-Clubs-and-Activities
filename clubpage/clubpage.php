@@ -55,15 +55,41 @@ if (!isset($_SESSION['myusername'])) {
 else
 {
     echo "<br/>";
+    
+    //Display either an "add" or "delete" button, but not both
+    
+    //Get data
+    $myusername = $_SESSION['myusername'];
 
-    echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname']." class=add_club>";
-    echo "ADD this Club<br/>";
-    echo "</a>";
+    //search for user id 
+    $sql = "SELECT * FROM Users WHERE username='$myusername'";
+    $result = mysql_query($sql);
+    $db_field = mysql_fetch_assoc($result);
+    $myuserid = $db_field['userid'];
 
-    echo "<br/>";
+    //search for club id
+    $sql = "SELECT * FROM Clubs WHERE urlname='$clubname'";
+    $result = mysql_query($sql);
+    $db_field = mysql_fetch_assoc($result);
+    $myclubid = $db_field['clubid'];
 
-    echo "<a href=http://rclubs.me/myclubs/delete_club.php?club=".$get['urlname']." class=delete_club>";
-    echo "DELETE this Club<br/>";
-    echo "</a>";       
+    //Checks to see if the user already added the club to the MyClubs list
+    $sql = "SELECT * FROM MyClubs WHERE userid='$myuserid' and clubid='$myclubid'";
+    $result = mysql_query($sql);
+
+    if (mysql_num_rows($result) == 0) {
+       echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname']." class=add_club>";
+       echo "ADD this Club<br/>";
+       echo "</a>";
+
+       echo "<br/>";
+    }
+    else
+    {
+        echo "<a href=http://rclubs.me/myclubs/delete_club.php?club=".$get['urlname']." class=delete_club>";
+        echo "DELETE this Club<br/>";
+        echo "</a>";       
+    }
+
 }                     
-?>
+?> 
