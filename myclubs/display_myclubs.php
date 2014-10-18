@@ -1,8 +1,8 @@
 <?php
-session_start();
-if (!isset($_SESSION['myusername'])) {
-    header("location: http://rclubs.me");
-}
+    session_start();
+    if (!isset($_SESSION['myusername'])) {
+        header("location: http://rclubs.me");
+    }   
 
 $host="localhost"; // Host name
 $username="rclubsme_user"; // Mysql username
@@ -31,6 +31,12 @@ if(mysql_num_rows($check) == 0)
     exit("No clubs saved.<br/>");
 }
 
+//notify the user when there's a club meeting
+$notifications = array();
+
+//get the current day of the week
+$currentday = date("l");
+
 while ($row = mysql_fetch_assoc($check)) 
 {
     $myclubid = $row['clubid'];
@@ -40,8 +46,34 @@ while ($row = mysql_fetch_assoc($check))
     $result = mysql_query($sql);
     $db_field = mysql_fetch_assoc($result);
     $myclubname = $db_field['name'];
+    $meetingdays = $db_field['weekday'];
 
-    //print each club found
-     echo $myclubname . "<br/>";
+    //print each club found (provide a link to the clubpage)
+    echo "<a href=http://rclubs.me/clubpage/" . $db_field['urlname'] . ">";
+    echo $myclubname . "</a>";
+    echo "<br/>";
+
+
+    //notify the user if there is a meeting on this day (for example Friday)
+    //make sure to mention the time
+    if (strpos($meetingdays, $currentday) !== false)
+    { 
+        $notifications[] = $myclubname . " at " . date('H:i',strtotime($db_field['time'])) . "<br/>"; 
+    }
+}
+
+echo "<br/><h3>Today is " . $currentday . "</h3>";
+
+//Creates a notification message string
+if (!empty($notifications)) {
+    $message = "You have meetings for the following clubs:<br/>";
+    foreach($notifications as $msg) {
+        $message .=  $msg;
+    }
+    echo $message;
+}
+else
+{
+    echo "You have no club meetings today.<br/>";
 }
 ?>
