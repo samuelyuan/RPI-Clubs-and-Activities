@@ -46,4 +46,7 @@ else
 {
      exit("This club isn't on your MyClubs list.<br/>");
 }
+
+//automatically redirect to the MyClubs page
+echo "<meta http-equiv='refresh' content='3; url=http://rclubs.me/myclubs/'>";
 ?>

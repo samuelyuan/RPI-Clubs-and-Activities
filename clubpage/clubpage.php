@@ -55,9 +55,9 @@ if (!isset($_SESSION['myusername'])) {
 else
 {
     echo "<br/>";
-    
+
     //Display either an "add" or "delete" button, but not both
-    
+
     //Get data
     $myusername = $_SESSION['myusername'];
 
@@ -68,7 +68,7 @@ else
     $myuserid = $db_field['userid'];
 
     //search for club id
-    $sql = "SELECT * FROM Clubs WHERE urlname='$clubname'";
+    $sql = "SELECT * FROM Clubs WHERE urlname='$myurl'";
     $result = mysql_query($sql);
     $db_field = mysql_fetch_assoc($result);
     $myclubid = $db_field['clubid'];
@@ -92,4 +92,4 @@ else
     }
 
 }                     
-?> 
+?>

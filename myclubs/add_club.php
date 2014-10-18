@@ -44,4 +44,7 @@ if($data)
 {
     echo "Club successfully added to the MyClubs list<br/>";
 }
+
+//automatically redirect to the MyClubs page
+echo "<meta http-equiv='refresh' content='3; url=http://rclubs.me/myclubs/'>";
 ?>
