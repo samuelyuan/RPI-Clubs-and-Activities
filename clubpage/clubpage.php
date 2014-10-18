@@ -1,4 +1,4 @@
-<?php include ( "../clubpage/header.php" ); ?>
+                                <?php include ( "../clubpage/header.php" ); ?>
 <?php
     
     $host="localhost"; // Host name
@@ -31,21 +31,7 @@
     }
 ?>
 
-<!--Print club information from database-->
-<table border="1" width="25%" cellpadding="4" cellspacing="3">
-   <th colspan="2">
-        <h3><br>Club Name: <?php echo "$clubname"; ?></h3>
-   </th>
-   <tr>
-       <td>Meeting Day(s)</td>
-       <td><?php echo "$weekday"; ?></td>
-   </tr>
-   <tr>
-       <td>Location</td>
-       <td><?php echo "$location"; ?></td>
-   </tr>
-</table>
-
+<div class="clubbar">
 <?php
 session_start();
 
@@ -56,14 +42,72 @@ else
 {
     echo "<br/>";
 
-    echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname']." class=add_club>";
-    echo "ADD this Club<br/>";
-    echo "</a>";
+    //Display either an "add" or "delete" button, but not both
 
-    echo "<br/>";
+    //Get data
+    $myusername = $_SESSION['myusername'];
 
-    echo "<a href=http://rclubs.me/myclubs/delete_club.php?club=".$get['urlname']." class=delete_club>";
-    echo "DELETE this Club<br/>";
-    echo "</a>";       
+    //search for user id 
+    $sql = "SELECT * FROM Users WHERE username='$myusername'";
+    $result = mysql_query($sql);
+    $db_field = mysql_fetch_assoc($result);
+    $myuserid = $db_field['userid'];
+
+    //search for club id
+    $sql = "SELECT * FROM Clubs WHERE urlname='$myurl'";
+    $result = mysql_query($sql);
+    $db_field = mysql_fetch_assoc($result);
+    $myclubid = $db_field['clubid'];
+
+    //Checks to see if the user already added the club to the MyClubs list
+    $sql = "SELECT * FROM MyClubs WHERE userid='$myuserid' and clubid='$myclubid'";
+    $result = mysql_query($sql);
+
+    if (mysql_num_rows($result) == 0) {
+       echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname']." class=add_club>";
+       echo "Add Club";
+       echo "</a>";
+
+       //echo "<br/>";
+    }
+    else
+    {
+        echo "<a href=http://rclubs.me/myclubs/delete_club.php?club=".$get['urlname']." class=delete_club>";
+        echo "Delete Club";
+        echo "</a>";       
+    }
+
 }                     
 ?>
+</div>
+
+<div class="clubbanner"><p><?php echo "$clubname"; ?></p></div>
+
+<div class="container">
+    <div id="navcontainer" class="clubnav" style="background: #99ccff;"> 
+    <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Posts</a></li>
+        <li><a href="#">Members</a></li>
+        <li><a href="#">Photos</a></li>
+    </ul>
+    <br style="clear:right"/>
+    </div>
+</div>
+
+<!--Print club information from database-->  
+<div class="clubabout">
+    <table id="clubtable" border="1" width="25%" cellpadding="4" cellspacing="3">
+    <th colspan="2">
+        <h3><br><?php echo "Club Info"; ?></h3>
+    </th>
+    <tr>
+        <td>Meeting Day(s)</td>
+        <td><?php echo "$weekday"; ?></td>
+    </tr>
+    <tr>
+        <td>Location</td>
+        <td><?php echo "$location"; ?></td>
+    </tr>
+    </table>
+</div>
