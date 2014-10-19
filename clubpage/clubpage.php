@@ -65,26 +65,15 @@ else
 
     if (mysql_num_rows($result) == 0) {
        echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname']." class=add_club>";
-<<<<<<< HEAD
        echo "Add Club";
        echo "</a>";
 
        //echo "<br/>";
-=======
-       echo "ADD this Club<br/>";
-       echo "</a>";
-
-       echo "<br/>";
->>>>>>> origin/master
     }
     else
     {
         echo "<a href=http://rclubs.me/myclubs/delete_club.php?club=".$get['urlname']." class=delete_club>";
-<<<<<<< HEAD
         echo "Delete Club";
-=======
-        echo "DELETE this Club<br/>";
->>>>>>> origin/master
         echo "</a>";       
     }
 
