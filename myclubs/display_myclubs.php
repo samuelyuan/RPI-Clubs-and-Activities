@@ -35,6 +35,7 @@ if(mysql_num_rows($check) == 0)
 $notifications = array();
 
 //get the current day of the week
+date_default_timezone_set('America/New_York');
 $currentday = date("l");
 
 while ($row = mysql_fetch_assoc($check)) 
@@ -58,7 +59,7 @@ while ($row = mysql_fetch_assoc($check))
     //make sure to mention the time
     if (strpos($meetingdays, $currentday) !== false)
     { 
-        $notifications[] = $myclubname . " at " . date('H:i',strtotime($db_field['time'])) . "<br/>"; 
+        $notifications[] = $myclubname . " at " . date('H:i',strtotime($db_field['time'])) . " in " . $db_field['location'] . "<br/>"; 
     }
 }
 
