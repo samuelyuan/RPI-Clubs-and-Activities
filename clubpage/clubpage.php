@@ -2,22 +2,69 @@
     include ( "../clubpage/header.php" ); 
     require_once('../php/club_functions.php');
 ?>
- 
-<?php
 
-    connectToDatabse();
+<?php
+  
+    connectToDatabase();
 
     if(isset($_GET['c'])) {   //Get club name from link
         $myurl = mysql_real_escape_string($_GET['c']);   //Store club name in variable
         
         //Check if club is valid and in database, then get information about the club
         if(preg_match("/^[a-zA-Z0-9_\-]+$/", $myurl)){
-            $check = mysql_query("SELECT urlname, name, weekday, location FROM Clubs WHERE urlname = '$myurl'");
+            $check = mysql_query("SELECT urlname, name, weekday, location, day_time FROM Clubs WHERE urlname = '$myurl'");
             if(mysql_num_rows($check)==1){
                 $get = mysql_fetch_assoc($check);
                 $clubname = $get['name'];
                 $weekday = $get['weekday'];
                 $location = $get['location'];
+                $day_time = $get['day_time'];
+
+		//Stores the days, start times, and ent times as arrays.
+		$days = array();
+		$start_times = array();
+		$end_times = array();
+		$length = strlen($day_time);
+
+		for($i = 0; $i < $length;) {
+			$temp = "";
+			for($j = 0; $i + $j < $length; $j++) {
+				if ($day_time[$i+$j] != '_')
+					$temp .= $day_time[$i+$j];
+				else {
+					$i += $j + 1;
+					break;
+				}
+			}
+			array_push($days, $temp);
+			
+			$temp = "";
+			for($j = 0; $i + $j < $length; $j++) {
+				if ($day_time[$i+$j] != '_')
+					$temp .= $day_time[$i+$j];
+				else {
+					$i += $j + 1;
+					break;
+				}
+			}
+			array_push($start_times, $temp);
+			
+			$temp = "";
+			for($j = 0; $i + $j < $length; $j++) {
+				if ($day_time[$i+$j] != ';'){
+					$temp .= $day_time[$i+$j];
+				}
+				else {
+					$i += $j + 1;
+					break;
+				}
+				if ($i+$j == $length - 1)
+					$i += $j + 1;
+			}
+			array_push($end_times, $temp);
+			
+		}
+                
             }else{
                 echo "<strong>Club does not exist!</strong>";
                 exit();
@@ -42,14 +89,16 @@ else
     //Get data
     $myusername = $_SESSION['myusername'];
 
-    //Get the user and club id
-    list($myuserid, $myclubid) = getUserAndClubId($myusername, $myurl);
+   //Get the user and club id
+   list($myuserid, $myclubid) = getUserAndClubId($myusername, $myurl);
 
     //Checks to see if the user already added the club to the MyClubs list
     if (!isClubAdded($myuserid, $myclubid)) {
        echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname']." class=add_club>";
        echo "Add Club";
        echo "</a>";
+
+       //echo "<br/>";
     }
     else
     {
@@ -84,7 +133,15 @@ else
     </th>
     <tr>
         <td>Meeting Day(s)</td>
-        <td><?php echo "$weekday"; ?></td>
+        <td><?php 	
+        	$size = count($days);	
+        	for ($i = 0; $i < $size; $i++) {
+        		echo ($days[$i] . " " . $start_times[$i] . "-" . $end_times[$i]);
+        		if ($i != $size - 1)
+        			echo( ", ");
+        	}
+        	?>
+        </td>
     </tr>
     <tr>
         <td>Location</td>

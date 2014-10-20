@@ -25,7 +25,7 @@
     //make sure to encrypt password before checking
     $mypassword = md5($mypassword);
 
-    $sql = "SELECT * FROM $tbl_name WHERE username='$myusername' and password='$mypassword'";
+    $sql = "SELECT * FROM $tbl_name WHERE (username='$myusername' OR email='$myusername') AND password='$mypassword'";
     $result = mysql_query($sql);
 
     $count = mysql_num_rows($result);
@@ -53,7 +53,6 @@
     {
         //wait half a second
         sleep(.5);
-
-        header("location:index.php");
+        header('location:index.php');
     }
 ?>

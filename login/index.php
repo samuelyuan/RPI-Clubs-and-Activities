@@ -41,9 +41,8 @@
                 </div>
                 <div class="boxes">
                     <form method="post" action="checklogin.php">
-                        <input name="myusername" id="fbox" type="text" placeholder="username">
+                        <input name="myusername" id="fbox" type="text" placeholder="username or email">
                         <input name="mypassword" id="fbox" type="password" placeholder="password">
-                        
                         <input id="register" type="submit" value="LOGIN">
                     </form>
                 </div>
