@@ -1,16 +1,11 @@
-                                <?php include ( "../clubpage/header.php" ); ?>
+<?php 
+    include ( "../clubpage/header.php" ); 
+    require_once('../php/club_functions.php');
+?>
+ 
 <?php
-    
-    $host="localhost"; // Host name
-    $username="rclubsme_user"; // Mysql username
-    $password="rpi123"; // Mysql password
-    $db_name="rclubsme_users"; // Database name
-    $tbl_name="Clubs"; // Table name
 
-    // Connect to server and select databse.
-    mysql_connect("$host", "$username", "$password")or die("cannot connect");
-    mysql_select_db("$db_name")or die("cannot select DB");
-
+    connectToDatabse();
 
     if(isset($_GET['c'])) {   //Get club name from link
         $myurl = mysql_real_escape_string($_GET['c']);   //Store club name in variable
@@ -47,28 +42,14 @@ else
     //Get data
     $myusername = $_SESSION['myusername'];
 
-    //search for user id 
-    $sql = "SELECT * FROM Users WHERE username='$myusername'";
-    $result = mysql_query($sql);
-    $db_field = mysql_fetch_assoc($result);
-    $myuserid = $db_field['userid'];
-
-    //search for club id
-    $sql = "SELECT * FROM Clubs WHERE urlname='$myurl'";
-    $result = mysql_query($sql);
-    $db_field = mysql_fetch_assoc($result);
-    $myclubid = $db_field['clubid'];
+    //Get the user and club id
+    list($myuserid, $myclubid) = getUserAndClubId($myusername, $myurl);
 
     //Checks to see if the user already added the club to the MyClubs list
-    $sql = "SELECT * FROM MyClubs WHERE userid='$myuserid' and clubid='$myclubid'";
-    $result = mysql_query($sql);
-
-    if (mysql_num_rows($result) == 0) {
+    if (!isClubAdded($myuserid, $myclubid)) {
        echo "<a href=http://rclubs.me/myclubs/add_club.php?club=".$get['urlname']." class=add_club>";
        echo "Add Club";
        echo "</a>";
-
-       //echo "<br/>";
     }
     else
     {

@@ -14,6 +14,26 @@ function connectToDatabase()
     mysql_select_db("$db_name")or die("cannot select DB");
 }
 
+function searchClubUrl($word)
+{
+    $query = "SELECT * FROM Clubs"; 
+    $result = mysql_query($query) or die(mysql_error());
+
+    while($row = mysql_fetch_array($result)){
+    	if (strpos(strtolower($row['name']),strtolower($word)) !== false) {
+    		/*echo "<a href=http://rclubs.me/clubpage/".$row['urlname'].">";	
+    		echo $row['name'] . "<br/>";
+         	echo "Day(s) of the week: " . $row['weekday'] . "<br/>";
+         	echo "Time: " . $row['time'] . "<br/>";
+         	echo "Location: " . $row['location'] . "<br/>";
+         	echo "</a>";*/
+            return $row['urlname'];
+	   }
+    }
+    
+    return "";
+}
+
 function getUserAndClubId($username, $clubname)
 {
     //search for user id
