@@ -20,51 +20,7 @@
                 $location = $get['location'];
                 $day_time = $get['day_time'];
 
-		//Stores the days, start times, and ent times as arrays.
-		$days = array();
-		$start_times = array();
-		$end_times = array();
-		$length = strlen($day_time);
-
-		for($i = 0; $i < $length;) {
-			$temp = "";
-			for($j = 0; $i + $j < $length; $j++) {
-				if ($day_time[$i+$j] != '_')
-					$temp .= $day_time[$i+$j];
-				else {
-					$i += $j + 1;
-					break;
-				}
-			}
-			array_push($days, $temp);
-			
-			$temp = "";
-			for($j = 0; $i + $j < $length; $j++) {
-				if ($day_time[$i+$j] != '_')
-					$temp .= $day_time[$i+$j];
-				else {
-					$i += $j + 1;
-					break;
-				}
-			}
-			array_push($start_times, $temp);
-			
-			$temp = "";
-			for($j = 0; $i + $j < $length; $j++) {
-				if ($day_time[$i+$j] != ';'){
-					$temp .= $day_time[$i+$j];
-				}
-				else {
-					$i += $j + 1;
-					break;
-				}
-				if ($i+$j == $length - 1)
-					$i += $j + 1;
-			}
-			array_push($end_times, $temp);
-			
-		}
-                
+                $hours = getDaytimeHours($day_time);
             }else{
                 echo "<strong>Club does not exist!</strong>";
                 exit();
@@ -134,13 +90,8 @@ else
     <tr>
         <td>Meeting Day(s)</td>
         <td><?php 	
-        	$size = count($days);	
-        	for ($i = 0; $i < $size; $i++) {
-        		echo ($days[$i] . " " . $start_times[$i] . "-" . $end_times[$i]);
-        		if ($i != $size - 1)
-        			echo( ", ");
-        	}
-        	?>
+        	echo $hours;
+            ?>
         </td>
     </tr>
     <tr>
