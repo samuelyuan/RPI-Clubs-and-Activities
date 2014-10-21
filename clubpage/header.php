@@ -36,10 +36,10 @@
     				{echo("Signup");}
     		?> 
     	</div></a>
-        <a href="http://rclubs.me/myclubs"><div id="myclubs" class="button">
+        <a href="http://rclubs.me/myclubs/"><div id="myclubs" class="button">
                 <?php
                 	if (isset($_SESSION['myusername']))
-    				{echo("Myclubs");}
+    				{echo("MyClubs");}
     		?> 
         </div></a>
         <a href="http://rclubs.me/login/logout.php"><div id="logout" class="button">

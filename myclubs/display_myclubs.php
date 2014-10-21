@@ -1,26 +1,17 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['myusername'])) {
-        header("location: http://rclubs.me");
-    }   
+session_start();
+if (!isset($_SESSION['myusername'])) {
+    header("location: http://rclubs.me");
+}
 
-$host="localhost"; // Host name
-$username="rclubsme_user"; // Mysql username
-$password="rpi123"; // Mysql password
-$db_name="rclubsme_users"; // Database name
-$tbl_name="MyClubs"; // Table name
+require_once('../php/club_functions.php');
 
-// Connect to server and select databse.
-mysql_connect("$host", "$username", "$password")or die("cannot connect");
-mysql_select_db("$db_name")or die("cannot select DB");
+connectToDatabase();
 
 $myusername = $_SESSION['myusername'];
 
 //search for user id
-$sql = "SELECT * FROM Users WHERE username='$myusername'";
-$result = mysql_query($sql);
-$db_field = mysql_fetch_assoc($result);
-$myuserid = $db_field['userid'];
+$myuserid = getUserId($myusername);
 
 echo "Username: ". $myusername . "<br/><br/>";
 echo "Clubs added: <br/>";
@@ -47,19 +38,25 @@ while ($row = mysql_fetch_assoc($check))
     $result = mysql_query($sql);
     $db_field = mysql_fetch_assoc($result);
     $myclubname = $db_field['name'];
-    $meetingdays = $db_field['weekday'];
+    $meetingdays = $db_field['day_time'];
 
     //print each club found (provide a link to the clubpage)
     echo "<a href=http://rclubs.me/clubpage/" . $db_field['urlname'] . ">";
     echo $myclubname . "</a>";
     echo "<br/>";
 
-
     //notify the user if there is a meeting on this day (for example Friday)
     //make sure to mention the time
-    if (strpos($meetingdays, $currentday) !== false)
-    { 
-        $notifications[] = $myclubname . " at " . date('H:i',strtotime($db_field['time'])) . " in " . $db_field['location'] . "<br/>"; 
+    $days = explode(";", $meetingdays);
+    $size = count($days);
+    for ($i = 0; $i < $size; $i++)
+    {
+       if (strpos($days[$i], $currentday) !== false)
+       {
+           $hours = explode("_", $days[$i]);
+           $start_time = $hours[1];
+           $notifications[] = $myclubname . " at " . date('H:i',$start_time) . " in " . $db_field['location'] . "<br/>"; 
+       }
     }
 }
 

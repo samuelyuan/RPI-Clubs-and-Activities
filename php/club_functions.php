@@ -31,10 +31,7 @@ function searchClubUrl($word)
 function getUserAndClubId($username, $clubname)
 {
     //search for user id
-    $sql = "SELECT * FROM Users WHERE username='$username'";
-    $result = mysql_query($sql);
-    $db_field = mysql_fetch_assoc($result);
-    $myuserid = $db_field['userid'];
+    $myuserid = getUserId($username);
 
     //search for club id
     $sql = "SELECT * FROM Clubs WHERE urlname='$clubname'";
@@ -45,6 +42,13 @@ function getUserAndClubId($username, $clubname)
     return array($myuserid, $myclubid);
 }
 
+function getUserId($username)
+{
+    $sql = "SELECT * FROM Users WHERE username='$username'";
+    $result = mysql_query($sql);
+    $db_field = mysql_fetch_assoc($result);
+    return $db_field['userid'];
+}
 
 function isClubAdded($myuserid, $myclubid)
 {
@@ -78,70 +82,17 @@ function deleteClub($userid, $clubid)
 
 function getDaytimeHours($day_time)
 {
-    //Stores the days, start times, and ent times as arrays.
-    $days = array();
-    $start_times = array();
-    $end_times = array();
-    $length = strlen($day_time);
+    //split the string into separate days
+    $days = explode(";", $day_time);
+    $numDays = count($days);
 
-    //parse the string in the database (dayofweek_starttime_endtime)
-    for($i = 0; $i < $length;) 
+    //split the string into the day of the week, start time, and end time
+    for ($i = 0; $i < $numDays; $i++)
     {
-        $temp = "";
-        for($j = 0; $i + $j < $length; $j++) 
-        {
-            if ($day_time[$i+$j] != '_')
-                $temp .= $day_time[$i+$j];
-            else 
-            {
-                $i += $j + 1;
-                break;
-            }
-        }
-        array_push($days, $temp);
-
-        $temp = "";
-        for($j = 0; $i + $j < $length; $j++) 
-        {
-            if ($day_time[$i+$j] != '_')
-                $temp .= $day_time[$i+$j];
-            else 
-            {
-                $i += $j + 1;
-                break;
-            }
-        }
-        array_push($start_times, $temp);
-
-        $temp = "";
-        for($j = 0; $i + $j < $length; $j++) 
-        {
-            if ($day_time[$i+$j] != ';')
-            {
-                $temp .= $day_time[$i+$j];
-            }
-            else 
-            {
-                $i += $j + 1;
-                break;
-            }
-            if ($i+$j == $length - 1)
-                $i += $j + 1;
-        }
-        array_push($end_times, $temp);
+       $times = explode("_", $days[$i]);
+       $str .= $times[0] . " " . $times[1] . "-" . $times[2] . ", ";
     }
-    
-    //generate print string
-    $size = count($days);	
-    $str = "";
-    for ($i = 0; $i < $size; $i++) 
-    {
-        $str .= $days[$i] . " " . $start_times[$i] . "-" . $end_times[$i];
-        if ($i != $size - 1)
-            $str .= ", ";
-    }
-    
+
     return $str;
 }
-
 ?>
