@@ -55,7 +55,7 @@ while ($row = mysql_fetch_assoc($check))
        {
            $hours = explode("_", $days[$i]);
            $start_time = $hours[1];
-           $notifications[] = $myclubname . " at " . date('H:i',$start_time) . " in " . $db_field['location'] . "<br/>"; 
+           $notifications[] = $myclubname . " at " . date('h:i a', strtotime($start_time)) . " in " . $db_field['location'] . "<br/>"; 
        }
     }
 }
