@@ -114,33 +114,16 @@ function getDaytimeHours($day_time)
     for ($i = 0; $i < $numDays; $i++)
     {
        $times = explode("_", $days[$i]);	//split time into day of week, time of start of meeting, and time of end of meeting
-       $start = explode(":", $times[1]);	//split start time of meeting into hours and minutes
-       $end = explode(":", $times[2]);		//split end time of meeting into hours and minutes
-       $startHours = 0 + $start[0];		//convert the start time hours from string to integer
-       $endHours = 0 + $end[0];			//convert the end time hours from string to integer
        
-       //adjust 24 hours clock to 12 hours, and attach am or pm accordingly to back of minutes
-       if($startHours > 12){
-           $startHours = $startHours - 12;
-           $start[1] = $start[1] . "pm";
-       }else{
-           $start[1] = $start[1] . "am";
-       }
-       if($endHours > 12){
-           $endHours = $endHours - 12;
-           $end[1] = $end[1] . "pm";
-       }else{
-           $end[1] = $end[1] . "am";
-       }
-       
+       //convert the start and end hours to "am" or "pm"
+       $start = date("g:i a", strtotime($times[1])); 
+       $end = date("g:i a", strtotime($times[2]));
+
        //do not add a comma if printing last day
-       if($i == $numDays-1)
+       $str .= $times[0] . " " . $start . "-" . $end;
+       if($i != $numDays-1)
        {
-           $str .= $times[0] . " " . strval($startHours) . ":" . $start[1] . "-" . strval($endHours) . ":" . $end[1];
-       }
-       else
-       {
-           $str .= $times[0] . " " . strval($startHours) . ":" . $start[1] . "-" . strval($endHours) . ":" . $end[1] . ", ";
+           $str .= ", ";
        }
     }
 
