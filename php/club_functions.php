@@ -1,4 +1,4 @@
-                                                                                                                                <?php
+                                                                                                                                                                <?php
 //This file contains commonly used functions for managing clubs
 
 function connectToDatabase()
@@ -102,6 +102,10 @@ function deleteClub($userid, $clubid)
 function getDaytimeHours($day_time)
 {
     mysql_select_db("rclubsme_users")or die("cannot select DB");
+    
+    //return "Not Available!" if time of meetings are empty or not in database
+    if($day_time == ""){return "Not Available!";}
+    
     //split the string into separate days
     $days = explode(";", $day_time);
     $numDays = count($days);
@@ -109,13 +113,13 @@ function getDaytimeHours($day_time)
     //split the string into the day of the week, start time, and end time
     for ($i = 0; $i < $numDays; $i++)
     {
-       $times = explode("_", $days[$i]);
-       $start = explode(":", $times[1]);
-       $end = explode(":", $times[2]);
-       $startHours = 0 + $start[0];
-       $endHours = 0 + $end[0];
+       $times = explode("_", $days[$i]);	//split time into day of week, time of start of meeting, and time of end of meeting
+       $start = explode(":", $times[1]);	//split start time of meeting into hours and minutes
+       $end = explode(":", $times[2]);		//split end time of meeting into hours and minutes
+       $startHours = 0 + $start[0];		//convert the start time hours from string to integer
+       $endHours = 0 + $end[0];			//convert the end time hours from string to integer
        
-       //adjust 24 hours clock to 12 hours
+       //adjust 24 hours clock to 12 hours, and attach am or pm accordingly to back of minutes
        if($startHours > 12){
            $startHours = $startHours - 12;
            $start[1] = $start[1] . "pm";
@@ -129,7 +133,7 @@ function getDaytimeHours($day_time)
            $end[1] = $end[1] . "am";
        }
        
-       //Do not add a comma if printing last day
+       //do not add a comma if printing last day
        if($i == $numDays-1)
        {
            $str .= $times[0] . " " . strval($startHours) . ":" . $start[1] . "-" . strval($endHours) . ":" . $end[1];
@@ -143,6 +147,7 @@ function getDaytimeHours($day_time)
     return $str;
 }
 ?>
+                            
                             
                             
                             
