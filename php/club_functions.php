@@ -1,4 +1,4 @@
-<?php
+                                                                                                                                <?php
 //This file contains commonly used functions for managing clubs
 
 function connectToDatabase()
@@ -8,6 +8,7 @@ function connectToDatabase()
     $username="rclubsme_user";
     $password="rpi123"; 
     $db_name="rclubsme_users"; 
+    $tbl_name="Clubs";
 
     //Connect to server and select databse.
     mysql_connect("$host", "$username", "$password")or die("cannot connect");
@@ -16,6 +17,7 @@ function connectToDatabase()
 
 function searchClubUrl($word)
 {
+    mysql_select_db("rclubsme_users")or die("cannot select DB");
     $query = "SELECT * FROM Clubs"; 
     $result = mysql_query($query) or die(mysql_error());
 
@@ -30,6 +32,7 @@ function searchClubUrl($word)
 
 function getUserAndClubId($username, $clubname)
 {
+    mysql_select_db("rclubsme_users")or die("cannot select DB");
     //search for user id
     $myuserid = getUserId($username);
 
@@ -44,6 +47,7 @@ function getUserAndClubId($username, $clubname)
 
 function getUserId($username)
 {
+    mysql_select_db("rclubsme_users")or die("cannot select DB");
     $sql = "SELECT * FROM Users WHERE username='$username'";
     $result = mysql_query($sql);
     $db_field = mysql_fetch_assoc($result);
@@ -52,16 +56,28 @@ function getUserId($username)
 
 function isClubAdded($myuserid, $myclubid)
 {
+
+    mysql_select_db("rclubsme_userdata")or die("cannot select DB");
+
     //Checks to see if the user already added the club to the MyClubs list
-    $sql = "SELECT * FROM MyClubs WHERE userid='$myuserid' and clubid='$myclubid'";
+    $tbl_name = $myuserid . "_Clubs";
+    $sql = "CREATE TABLE IF NOT EXISTS $tbl_name (entryid int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, clubid int(10))";
+    mysql_query($sql);
+    
+    $sql = "SELECT * FROM $tbl_name WHERE clubid='$myclubid'";
     $result = mysql_query($sql);
     return (mysql_num_rows($result) != 0); 
 }
 
 function addClub($userid, $clubid)
 {
+    mysql_select_db("rclubsme_userdata")or die("cannot select DB");
     //Add a new entry in the MyClubs table that maps the user id to the club id
-    $query = "INSERT INTO MyClubs (userid, clubid) VALUES ('$userid','$clubid')";
+    $tbl_name = $userid . "_Clubs";
+    $sql = "CREATE TABLE IF NOT EXISTS $tbl_name (entryid int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, clubid int(10))";
+    mysql_query($sql);
+    
+    $query = "INSERT INTO $tbl_name (clubid) VALUES ('$clubid')";
     $data = mysql_query($query)or die(mysql_error());
     if($data)
     {
@@ -71,8 +87,11 @@ function addClub($userid, $clubid)
 
 function deleteClub($userid, $clubid)
 {
+    mysql_select_db("rclubsme_userdata")or die("cannot select DB");
+    //Add a new entry in the MyClubs table that maps the user id to the club id
+    $tbl_name = $userid . "_Clubs";
     //Delete this entry in the MyClubs table
-    $query = "DELETE From MyClubs WHERE userid='$userid' AND clubid='$clubid'";
+    $query = "DELETE From $tbl_name WHERE clubid='$clubid'";
     $data = mysql_query($query)or die(mysql_error());
     if($data)
     {
@@ -82,6 +101,7 @@ function deleteClub($userid, $clubid)
 
 function getDaytimeHours($day_time)
 {
+    mysql_select_db("rclubsme_users")or die("cannot select DB");
     //split the string into separate days
     $days = explode(";", $day_time);
     $numDays = count($days);
@@ -90,9 +110,40 @@ function getDaytimeHours($day_time)
     for ($i = 0; $i < $numDays; $i++)
     {
        $times = explode("_", $days[$i]);
-       $str .= $times[0] . " " . $times[1] . "-" . $times[2] . ", ";
+       $start = explode(":", $times[1]);
+       $end = explode(":", $times[2]);
+       $startHours = 0 + $start[0];
+       $endHours = 0 + $end[0];
+       
+       //adjust 24 hours clock to 12 hours
+       if($startHours > 12){
+           $startHours = $startHours - 12;
+           $start[1] = $start[1] . "pm";
+       }else{
+           $start[1] = $start[1] . "am";
+       }
+       if($endHours > 12){
+           $endHours = $endHours - 12;
+           $end[1] = $end[1] . "pm";
+       }else{
+           $end[1] = $end[1] . "am";
+       }
+       
+       //Do not add a comma if printing last day
+       if($i == $numDays-1)
+       {
+           $str .= $times[0] . " " . strval($startHours) . ":" . $start[1] . "-" . strval($endHours) . ":" . $end[1];
+       }
+       else
+       {
+           $str .= $times[0] . " " . strval($startHours) . ":" . $start[1] . "-" . strval($endHours) . ":" . $end[1] . ", ";
+       }
     }
 
     return $str;
 }
 ?>
+                            
+                            
+                            
+                            
