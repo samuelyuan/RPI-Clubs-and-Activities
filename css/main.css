@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                * {
+* {
     margin: 0;
     padding: 0;
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
@@ -7,7 +7,6 @@
 body {
     width: 100%;
 }
-
 
 a:hover {
     color: none;
@@ -206,6 +205,12 @@ a {
     top: 0%;
     left: 72%;
     text-decoration: none;
+}
+
+#chat {
+    top: 0%;
+    left: 56%;
+    text_decoration: none;
 }
 
 #account {
@@ -461,7 +466,42 @@ a {
     text-align: left;
     color: #333;
     /*float: right;*/
-}          
-                            
-                            
-                            
+}
+  
+#wrapper {
+    margin:0 auto;
+    padding-bottom:25px;
+    background:#EBF4FB;
+    width:504px;
+    border:1px solid #ACD8F0; 
+}
+  
+  
+#chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:auto; 
+}
+  
+#usermsg {
+    width:395px;
+    border:1px solid #ACD8F0; 
+}
+  
+#submit { width: 60px; }
+  
+.error { color: #ff0000; }
+  
+#menu { padding:12.5px 25px 12.5px 25px; }
+  
+.welcome { float:left; }
+  
+.logout { float:right; }
+  
+.msgln { margin:0 0 2px 0; }
