@@ -1,4 +1,4 @@
-<?php
+                                <?php
     session_start();
 ?>
 <html>
@@ -14,34 +14,35 @@
         <div class="heading">
             <a href="http://rclubs.me"><img class="homebutton" src="images/rClubs.png"></a>
             <ul>
-                <a href="http://rclubs.me/about"><li class="topbutton" id="left"><font color="#0094e1">About</font></li></a>
-                <a href="http://rclubs.me/feedback.php"><li class="topbutton" id="left"><font color="#0094e1">Feedback</font></li></a>
-                <a href="http://rclubs.me/signup"><li class="topbutton" id="right" style="margin-right:3vw;"><font color="#0094e1">
+                <a href="http://rclubs.me/about"><li class="topbutton" id="left">About</li></a>
+                <a href="http://rclubs.me/feedback"><li class="topbutton" id="left">Feedback</li></a>
+                <a href="http://rclubs.me/signup"><li class="topbutton" id="right" style="margin-right:3vw;">
                 	<?php
                 	if (!isset($_SESSION['myusername']))
     				{echo("Signup");}
     			?>
-                </font></li></a>
-                <a href="http://rclubs.me/login"><li class="topbutton" id="right"><font color="#0094e1">
+                </li></a>
+                <a href="http://rclubs.me/login"><li class="topbutton" id="right">
                 	<?php
                 	if (!isset($_SESSION['myusername']))
     				{echo("Login");}
     			?>
-                </font></li></a>
-                <a href="http://rclubs.me/login/logout.php"><li class="topbutton" id="right""><font color="#0094e1">
+                </li></a>
+                <a href="http://rclubs.me/login/logout.php"><li class="topbutton" id="right">
                 	<?php
                 	if (isset($_SESSION['myusername']))
     				{echo("Logout");}
     			?>
-                </font></li></a>
-                <a href="http://rclubs.me/myclubs/"><li class="topbutton" id="right"><font color="#0094e1">
+                </li></a>
+                <a href="http://rclubs.me/myclubs/"><li class="topbutton" id="right">
                 	<?php
                 	if (isset($_SESSION['myusername']))
     				{echo("MyClubs");}
     			?>
-                </font></li></a>
+                </li></a>
             </ul>
         </div>
+        <div class="heading_underline"></div>
         <div class="search">
             <div class="logo">
                 <center>
@@ -66,3 +67,21 @@
         </div>
     </body>
 </html>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
